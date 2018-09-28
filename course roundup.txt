@@ -134,4 +134,29 @@ In code, this would be used as:
 
 	>>> yellow
 
+Week 3
 
+Extending existing classes
+
+Extra features can be added to a class by extending it. For example some Fruit could be weaponised!
+They have all the same aspects as a normal Fruit object, but can also inflict damage.
+
+In the fruit file we would have an additional section defining the new class:
+
+	class FruitWeapon(Fruit):
+		def __init(self, fruit_name):
+			super().__init__(fruit_name)
+			self.damage = None
+
+In this case a FruitWeapon object is a subclass of Fruit. It has all the properties of a Fruit but also the damage attribute.
+
+The subclass can then have its own methods that only apply to FruitWeapon objects:
+
+	def set_damage(self, damage_score):
+		self.damage = damage_score
+	def get_damage(self):
+		return self.damage
+	def throw(self):
+		print("You throw the " + self.name + " and cause " + self.damage " damage")
+		
+Because of 
