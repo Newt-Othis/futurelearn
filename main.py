@@ -19,6 +19,8 @@ ballroom.link_room(dining_hall, "east")
 dave = Enemy("Dave", "A smelly zombie")
 dave.set_conversation("Brrlgrh... rgrhl... brains...")
 dave.set_weakness("cheese")
+dave.set_tickle_reaction("arm falls off")
+dave.set_holding("sandwich")
 dining_hall.set_character(dave)
 
 autumn = Enemy("Autumn","A small monster.")
@@ -47,6 +49,13 @@ while True:
 			inhabitant.talk()
 		else:
 			print("You talk to an empty room...")
+	
+	elif command == "tickle":
+		if inhabitant is not None:
+			inhabitant.tickle()
+		else:
+			print("There's nobody to tickle")
+	
 	elif command == "fight":
 		weapon = input("Fight with what? > ")
 		print("")

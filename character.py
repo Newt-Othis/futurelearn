@@ -5,6 +5,8 @@ class Character():
 		self.name = char_name
 		self.description = char_description
 		self.conversation = None
+		self.tickle_reaction = None
+		self.holding = None
 
 	# Describe this character
 	def describe(self):
@@ -21,11 +23,24 @@ class Character():
 			print("[" + self.name + " says]: " + self.conversation)
 		else:
 			print(self.name + " doesn't want to talk to you")
+	
+	# Sets the reaction when tickled
+	def set_tickle_reaction(self, reaction):
+		self.tickle_reaction = reaction
+
+	# Set what the charcter is holding
+	def set_holding(self,holding):
+		self.holding = holding
 
 	# Fight with this character
 	def fight(self, combat_item):
 		print(self.name + " doesn't want to fight with you")
 		return True
+
+	# Tickle the character
+	def tickle(self):
+		print("You tickle " + self.name + " and " + self.tickle_reaction)
+		print(self.name + " drops the " + self.holding)
 
 class Enemy(Character):
 
