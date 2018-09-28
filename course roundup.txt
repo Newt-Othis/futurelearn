@@ -164,3 +164,50 @@ Because of polymorphism (ie subclasses inheriting the superclass attributes) it 
 	from fruit import FruitWeapon
 	
 Also, as long as they are imported in the main program, other classes can use objects defined in other classes.
+
+Week 4
+
+Instance variables and class variables
+
+An object's variables are normally set per instance. ie a banana.colour = yellow, but an apple.colour = green.
+
+If the variable is set before the constructor, that variable is the same for all instances of that class.
+
+Packaging multiple classes
+
+Put all your class files in one folder. Make sure the folder name has no spaces or capitals. Also do not put your main.py file here.
+
+Create a file called __init__.py
+
+In this file call all your classes:
+
+	from .character import Character, Enemy
+	from .item import Item
+	from .room import Room
+
+where character, item, and room are the filenames.
+
+If the folder is called 'stuff', in your main.py file import all your classes in one go with:
+
+	import stuff
+	
+Then objects can be created with:
+
+	fred = stuff.character("Fred","Soldier")
+
+Documenting your code
+
+Add docstrings to you code with triple quotes:
+
+	"""This is the funtion to create a banana"""
+	
+If code includes docstrings it may be possible to auto ducument it with:
+
+On Windows
+
+	python -m pydoc -w .\
+
+On Mac/Linux
+
+	python3 -m pydoc -w ./ 
+
