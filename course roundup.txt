@@ -1,0 +1,137 @@
+Week 1
+
+What is an object?
+
+An object is a 'thing' that has data and functions.
+
+Typically a user created object is defined by a file in the same folder as the main python program. This blueprint is called a class.
+Builtin objects are defined elsewhere.
+
+How are objects called in code?
+
+An object class is called at the top of the main code using the import command:
+
+	from turtle import Turtle
+
+Object classes are normally capitalised to distinguish them from other items. 
+
+Instances of the object are created by calling the imported class:
+
+	freddy = Turtle()
+
+Multiple object classes can be called from one source:
+
+	from shapes import Triangle, Rectangle, Oval
+
+Objects are interacted with by using Methods. Here the 'move' method is used on a 'ball' object:
+
+	ball.move(50)
+
+Getter and Setter methods are used to get and set values in an object. These are typically prefixed by get_ and set_ to make their use clear.
+
+	ball.set_colour("blue")
+	ballcolour = ball.get_colour()
+
+Week 2
+
+Classes are the blueprints that define an object.
+
+The first line of a class defines its name:
+
+	class Fruit():
+
+The next section of a class is called the constructor and sets details of how to make an instance of an object:
+
+	def __init__(self):
+
+Normally, values will be passed through to the constructor when an object is created. This is set up in the constructor:
+
+	def __init__(self,fruit_name):
+
+Attributes and their default/initial values are set in the constructor:
+
+	self.description = None
+
+If the attribute is used to create the object:
+
+	self.name = fruit_name
+
+Therefore, in full, this would be:
+
+	class Fruit():
+		def __init__(self,fruit_name):
+			self.name = fruit_name
+			self.description = None
+
+Your custom class should be saved in a file in the same directory as the main code. If the above was save in fruit.py, it would be called in code as:
+
+	from fruit import Fruit
+
+	banana = Fruit("banana")
+
+Note that the object is called banana and it's name attribute is banana - but these are not the same thing!
+
+As mentioned, getter and setter methods are normally part of a class:
+
+	def set_description(self, fruit_description):
+		self.description = fruit_description
+
+	def get_descriptions(self):
+		return self.description
+
+In this example, we would set and get a fruit's description:
+
+	banana.set_description("Bendy and tasty")
+
+	banana.get_description()
+
+Although we have 'got' the description, we haven't actually told the program to show it. The following method could be added to the class:
+
+	def describe(self):
+		print(self.description)
+
+and would be called in code as:
+
+	banana.describe()
+
+It is good programming practice to not call objects 'private' attributes directly and either use getters or other methods to return the value.
+
+Dictionary data structures are lists with named entries:
+
+	winners = { "gold": "Alex", "silver": "Brian", "bronze": "Clare"}
+	print( winners["gold"] )
+
+	>>> Alex
+
+As you can see this is used to look up the value of an item stored in the dictionary.
+
+A dictionary is created using curly brackets:
+
+	winners = {}
+
+Dictionary entries are set using square brackets:
+
+	winners["gold"] = "Fred"
+
+If we wanted to add a ripeness to colour attribute to our Fruit class, first add the ripeness attribute in the constructor:
+
+	self.ripeness = {}
+
+Then add the respective setters and getters:
+
+	def set_ripeness(self,fruit_ripeness,fruit_colour):
+		self.ripeness[fruit_ripeness] = fruit_colour
+	def get_ripeness(self,fruit_ripeness):
+		return self.ripeness["fruit_ripeness"]
+
+In code, this would be used as:
+
+	banana.set_ripeness["not ripe","green"]
+	banana.set_ripeness["ripe","yellow"]
+	banana.set_ripeness["over ripe","brown and spotty"]
+
+	print(banana.get_ripeness["ripe"])
+
+	>>> yellow
+
+
