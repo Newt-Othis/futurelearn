@@ -159,4 +159,8 @@ The subclass can then have its own methods that only apply to FruitWeapon object
 	def throw(self):
 		print("You throw the " + self.name + " and cause " + self.damage " damage")
 		
-Because of 
+Because of polymorphism (ie subclasses inheriting the superclass attributes) it is only necessary to import the FruitWeapon class:
+
+	from fruit import FruitWeapon
+	
+Also, as long as they are imported in the main program, other classes can use objects defined in other classes.
