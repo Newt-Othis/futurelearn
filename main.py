@@ -19,20 +19,23 @@ ballroom.link_room(dining_hall, "east")
 dave = Enemy("Dave", "A smelly zombie")
 dave.set_conversation("Brrlgrh... rgrhl... brains...")
 dave.set_weakness("cheese")
-dave.set_tickle_reaction("arm falls off")
+dave.set_tickle_reaction("his arm falls off. Dave picks it up.")
 dave.set_holding("sandwich")
 dining_hall.set_character(dave)
 
 autumn = Enemy("Autumn","A small monster.")
 autumn.set_conversation("I done a wee wee!")
 autumn.set_weakness("curry")
+autumn.set_tickle_reaction("she laughs!")
+autumn.set_holding("banana")
 ballroom.set_character(autumn)
 
 # Set initial room
 current_room = kitchen
 
 while True:
-	print("\n")
+	# print("\n")
+	print("")
 	current_room.get_details()
 	print("")
 	inhabitant = current_room.get_character()
@@ -41,9 +44,11 @@ while True:
 		print("")
 	command = input("> ")
 	print("")
+	
 	# Check whether a direction was typed
 	if command in ["north", "south", "east", "west"]:
 		current_room = current_room.move(command)
+	
 	elif command == "talk":
 		if inhabitant is not None:
 			inhabitant.talk()

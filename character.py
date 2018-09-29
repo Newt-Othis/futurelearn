@@ -39,8 +39,8 @@ class Character():
 
 	# Tickle the character
 	def tickle(self):
-		print("You tickle " + self.name + " and " + self.tickle_reaction)
-		print(self.name + " drops the " + self.holding)
+		print("You tickle " + self.name + " and " + self.tickle_reaction + ".")
+		print(self.name + " drops a " + self.holding + ".")
 
 class Enemy(Character):
 
@@ -58,3 +58,9 @@ class Enemy(Character):
 		else:
         		print(self.name + " crushes you, puny adventurer")
         		return False
+
+class Friend(Character):
+
+	def __init__(self, char_name, char_description):
+		super().__init__(char_name, char_description)
+		self.heal = None
