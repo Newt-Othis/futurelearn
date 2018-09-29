@@ -33,6 +33,10 @@ ballroom.set_character(autumn)
 # Set initial room
 current_room = kitchen
 
+# Create the bag
+bag=[]
+bag.append("tissues")
+
 while True:
 	# print("\n")
 	print("")
@@ -42,11 +46,16 @@ while True:
 	if inhabitant is not None:
 		inhabitant.describe()
 		print("")
+	if len(bag) > 0:
+		print("Your bag contains ",end='')
+		for i in bag:
+			print(i)
+ 
 	command = input("> ")
 	print("")
 	
 	# Check whether a direction was typed
-	if command in ["north", "south", "east", "west"]:
+	if command in ["north", "south", "east", "west","up","down"]:
 		current_room = current_room.move(command)
 	
 	elif command == "talk":
